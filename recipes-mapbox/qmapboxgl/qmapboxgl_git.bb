@@ -28,7 +28,8 @@ PV = "1.0.0+git${SRCPV}"
 SRC_URI = "\
     git://github.com/mapbox/mapbox-gl-native.git;protocol=https \
     file://config.gypi \
-    file://01-use_qt_native_image_decoders.patch"
+    file://01-use_qt_native_image_decoders.patch \
+    file://02-gcc4_compat.patch"
 
 inherit pkgconfig qmake5_paths
 

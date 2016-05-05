@@ -1,0 +1,14 @@
+diff --git a/include/mapbox/geometry/geometry.hpp b/include/mapbox/geometry/geometry.hpp
+index 1352756..486f3ea 100644
+--- a/include/mapbox/geometry/geometry.hpp
++++ b/include/mapbox/geometry/geometry.hpp
+@@ -36,7 +36,9 @@ struct geometry : geometry_base<T>
+      * The default constructor would create a point geometry with default-constructed coordinates;
+      * i.e. (0, 0). Since this is not particularly useful, and could hide bugs, it is disabled.
+      */
++#if !defined(__GNUC__) || __GNUC__ >= 5
+     geometry() = delete;
++#endif
+ };
+ 
+ template <typename T, template <typename...> class Cont>
