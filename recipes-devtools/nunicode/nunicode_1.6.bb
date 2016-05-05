@@ -11,7 +11,7 @@ DEPENDS = "sqlite3"
 
 S = "${WORKDIR}/alekseyt-nunicode-34f278da1e6a"
 
-SRC_URI = "https://bitbucket.org/alekseyt/nunicode/get/1.6.tar.bz2"
+SRC_URI = "https://bitbucket.org/alekseyt/nunicode/get/${PV}.tar.bz2"
 
 SRC_URI[md5sum] = "5e8670f4c90b02fcfd94baaa7a80e715"
 SRC_URI[sha256sum] = "9ef3c9bfd127dc98a2f46c731fee9fd37be4d49c9bb28449452e1d00c0a3c237"
