@@ -16,10 +16,12 @@ SRC_URI[sha256sum] = "38cc630cacf58cad3e21df8a1c8fd711c8f70868c1ffbe7b8c9df87c79
 
 DEPENDS = "rapidjson variant"
 
+EXTRA_OEMAKE = "CXXFLAGS=-fPIC"
+
 GYP_FLAGS = "\
     -Dinstall_prefix=${D}/${prefix} \
-    -Drapidjson_cflags=${includedir} \
-    -Dvariant_cflags=${includedir} \
+    -Drapidjson_cflags=""\
+    -Dvariant_cflags="" \
     -Dgtest=0 \
     -Dglfw=0"
 

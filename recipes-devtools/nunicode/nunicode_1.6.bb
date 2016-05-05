@@ -17,6 +17,7 @@ SRC_URI[md5sum] = "5e8670f4c90b02fcfd94baaa7a80e715"
 SRC_URI[sha256sum] = "9ef3c9bfd127dc98a2f46c731fee9fd37be4d49c9bb28449452e1d00c0a3c237"
 
 CMAKE_EXTRACONF = "-DCMAKE_BUILD_TYPE=Release"
+OECMAKE_CXX_FLAGS = "-fPIC"
 
 inherit cmake
 
