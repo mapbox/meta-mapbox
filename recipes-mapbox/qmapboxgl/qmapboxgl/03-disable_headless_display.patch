@@ -1,0 +1,19 @@
+commit d20f653b8c3183a83e6030390873ddc47cf1e558
+Author: Thiago Marcos P. Santos <thiago@mapbox.com>
+Date:   Fri May 6 19:41:34 2016 +0300
+
+    [Qt] Disable headless display
+
+diff --git a/platform/qt/platform.gyp b/platform/qt/platform.gyp
+index 8b6cdd5..c9f59bd 100644
+--- a/platform/qt/platform.gyp
++++ b/platform/qt/platform.gyp
+@@ -5,7 +5,7 @@
+       ['OS == "mac"', {
+         'headless_lib': 'cgl',
+       }, {
+-        'headless_lib': 'glx',
++        'headless_lib': 'none',
+       }]
+     ],
+     'qtlibversion': '1.0.0',

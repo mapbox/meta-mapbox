@@ -12,8 +12,14 @@ DEPENDS = "\
     qttools-native \
     rapidjson \
     sqlite3 \
-    variant \
-    virtual/libgl"
+    variant"
+
+# FIXME: this should be a dependency of the -bin package
+# but we are not splitting this recipe properly at the moment.
+RDEPENDS_${PN} = "\
+    qtgraphicaleffects-qmlplugins \
+    qtquickcontrols-qmlplugins \
+    qtdeclarative-qmlplugins"
 
 SECTION = "libs"
 
@@ -29,16 +35,23 @@ SRC_URI = "\
     git://github.com/mapbox/mapbox-gl-native.git;protocol=https \
     file://config.gypi \
     file://01-use_qt_native_image_decoders.patch \
-    file://02-gcc4_compat.patch"
+    file://02-gcc4_compat.patch \
+    file://03-disable_headless_display.patch"
 
 inherit pkgconfig qmake5_paths
+
+PACKAGECONFIG[gles2] ?= ""
+
+DEPENDS       += "${@bb.utils.contains('PACKAGECONFIG', 'gles2', 'virtual/libgles2 virtual/egl', 'virtual/libgl', d)}"
+OPENGL_CFLAGS  = "${@bb.utils.contains('PACKAGECONFIG', 'gles2', '-DMBGL_USE_GLES2', '', d)}"
+OPENGL_LDFLAGS = "${@bb.utils.contains('PACKAGECONFIG', 'gles2', '-lGLESv2', '-lGL', d)}"
 
 do_configure() {
     deps/run_gyp \
         --depth=${S} ${S}/platform/qt/platform.gyp \
         -I ${WORKDIR}/config.gypi \
-        -Dopengl_cflags="" \
-        -Dopengl_ldflags="-lGL" \
+        -Dopengl_cflags="${OPENGL_CFLAGS}" \
+        -Dopengl_ldflags="${OPENGL_LDFLAGS}" \
         -Dgeojsonvt_static_libs="-lgeojsonvt" \
         -Dnunicode_static_libs="-lnu" \
         -Dqt_moc="${OE_QMAKE_PATH_EXTERNAL_HOST_BINS}/moc" \
@@ -68,7 +81,7 @@ do_configure() {
 }
 
 do_compile() {
-    oe_runmake -C${S}/build qt-app qt-qml-app
+    oe_runmake V=1 -C${S}/build qt-app qt-qml-app
 }
 
 do_install() {
