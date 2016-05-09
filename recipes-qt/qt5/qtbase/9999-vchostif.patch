@@ -1,0 +1,23 @@
+diff --git a/config.tests/qpa/eglfs-brcm/eglfs-brcm.pro b/config.tests/qpa/eglfs-brcm/eglfs-brcm.pro
+index ce16a3a..b51302e 100644
+--- a/config.tests/qpa/eglfs-brcm/eglfs-brcm.pro
++++ b/config.tests/qpa/eglfs-brcm/eglfs-brcm.pro
+@@ -8,4 +8,4 @@ for(p, QMAKE_LIBDIR_EGL) {
+     exists($$p):LIBS += -L$$p
+ }
+ 
+-LIBS += -lEGL -lGLESv2 -lbcm_host
++LIBS += -lEGL -lGLESv2 -lbcm_host -lvchostif
+diff --git a/src/plugins/platforms/eglfs/deviceintegration/eglfs_brcm/eglfs_brcm.pro b/src/plugins/platforms/eglfs/deviceintegration/eglfs_brcm/eglfs_brcm.pro
+index 98797e2..a9bc254 100644
+--- a/src/plugins/platforms/eglfs/deviceintegration/eglfs_brcm/eglfs_brcm.pro
++++ b/src/plugins/platforms/eglfs/deviceintegration/eglfs_brcm/eglfs_brcm.pro
+@@ -9,7 +9,7 @@ QT += core-private gui-private platformsupport-private eglfs_device_lib-private
+ INCLUDEPATH += $$PWD/../..
+ CONFIG += egl
+ 
+-LIBS += -lbcm_host
++LIBS += -lbcm_host -lvchostif
+ QMAKE_LFLAGS += $$QMAKE_LFLAGS_NOUNDEF
+ 
+ SOURCES += $$PWD/qeglfsbrcmmain.cpp \
