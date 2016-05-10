@@ -33,4 +33,4 @@ FILES_${PN}-dev += "\
     ${libdir}/cmake/nunicode/nunicode-config.cmake \
     ${libdir}/cmake/nunicode/nunicode-config-noconfig.cmake"
 
-PACKAGES = "${PN}-dev ${PN}-staticdev"
+PACKAGES = "${PN} ${PN}-dev ${PN}-staticdev"

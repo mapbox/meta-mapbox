@@ -37,4 +37,4 @@ do_install() {
     oe_runmake -C${S}/build install
 }
 
-PACKAGES = "${PN}-dev ${PN}-staticdev"
+PACKAGES = "${PN} ${PN}-dev ${PN}-staticdev"
