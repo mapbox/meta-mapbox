@@ -35,6 +35,7 @@ do_compile() {
 
 do_install() {
     oe_runmake -C${S}/build install
+    chown -R root:root ${D}${libdir}/libgeojsonvt.a
 }
 
-PACKAGES = "${PN}-dev ${PN}-staticdev"
+PACKAGES = "${PN} ${PN}-dev ${PN}-staticdev"

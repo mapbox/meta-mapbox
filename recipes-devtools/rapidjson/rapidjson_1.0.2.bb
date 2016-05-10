@@ -15,4 +15,4 @@ do_install() {
     cp -r ${S}/include/rapidjson ${D}/${includedir}
 }
 
-PACKAGES = "${PN}-dev"
+PACKAGES = "${PN} ${PN}-dev"

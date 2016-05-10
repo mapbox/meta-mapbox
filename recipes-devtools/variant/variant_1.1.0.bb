@@ -19,4 +19,4 @@ do_install() {
     cp ${S}/*.hpp ${D}/${includedir}/mapbox
 }
 
-PACKAGES = "${PN}-dev"
+PACKAGES = "${PN} ${PN}-dev"

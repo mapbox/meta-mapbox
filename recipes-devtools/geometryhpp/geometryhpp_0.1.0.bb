@@ -27,4 +27,4 @@ do_install() {
     cp -R ${S}/include/mapbox/* ${D}/${includedir}/mapbox
 }
 
-PACKAGES = "${PN}-dev"
+PACKAGES = "${PN} ${PN}-dev"
