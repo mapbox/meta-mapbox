@@ -5,7 +5,7 @@
     'defines': [],
     'include_dirs': [],
     'libraries': [],
-    'cflags': ['-fvisibility=hidden'],
+    'cflags': ['-DQT_IMAGE_DECODERS', '-fvisibility=hidden'],
   },
   'variables': {
     'qt_version_major%': ['5'],
