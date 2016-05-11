@@ -28,13 +28,12 @@ LIC_FILES_CHKSUM = "file://LICENSE.md;endline=24;md5=a0832c9e25a6100b4753d7f0c3b
 
 S = "${WORKDIR}/git"
 
-SRCREV = "10e522d10b33e5268b619296eae0ccad899809d9"
+SRCREV = "12258215af1cee598c203b85e9c342bd9900b088"
 PV = "1.0.0+git${SRCPV}"
 
 SRC_URI = "\
     git://github.com/mapbox/mapbox-gl-native.git;protocol=https \
     file://config.gypi \
-    file://01-use_qt_native_image_decoders.patch \
     file://02-gcc4_compat.patch \
     file://03-disable_headless_display.patch"
 
@@ -50,6 +49,7 @@ do_configure() {
     deps/run_gyp \
         --depth=${S} ${S}/platform/qt/platform.gyp \
         -I ${WORKDIR}/config.gypi \
+        -Dqt_image_decoders=1 \
         -Dopengl_cflags="${OPENGL_CFLAGS}" \
         -Dopengl_ldflags="${OPENGL_LDFLAGS}" \
         -Dgeojsonvt_static_libs="-lgeojsonvt" \

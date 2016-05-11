@@ -1,6 +1,6 @@
-commit 4f1be3a8b3889de4d4117d30902f2ae385c786e7
+commit d52674510c7059b41f6b68d2c025beb8f0a0012f
 Author: Thiago Marcos P. Santos <thiago@mapbox.com>
-Date:   Thu May 5 03:21:27 2016 +0300
+Date:   Wed May 11 17:11:34 2016 +0300
 
     [core] Fix build on gcc4
     
@@ -45,13 +45,13 @@ index eab9725..fcabc07 100644
  namespace {
  
 diff --git a/src/mbgl/tile/vector_tile.hpp b/src/mbgl/tile/vector_tile.hpp
-index 153d7dc..d88f538 100644
+index c0892cd..4045702 100644
 --- a/src/mbgl/tile/vector_tile.hpp
 +++ b/src/mbgl/tile/vector_tile.hpp
 @@ -3,7 +3,11 @@
  
  #include <mbgl/tile/geometry_tile.hpp>
- #include <mbgl/map/tile_id.hpp>
+ #include <mbgl/tile/tile_id.hpp>
 +
 +#pragma GCC diagnostic push
 +#pragma GCC diagnostic ignored "-Wshadow"
