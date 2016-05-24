@@ -37,7 +37,7 @@ SRC_URI = "\
     file://02-gcc4_compat.patch \
     file://03-disable_headless_display.patch"
 
-inherit pkgconfig qmake5_paths
+inherit pkgconfig pythonnative qmake5_paths
 
 PACKAGECONFIG[gles2] ?= ""
 
