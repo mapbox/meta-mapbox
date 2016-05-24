@@ -28,7 +28,7 @@ LIC_FILES_CHKSUM = "file://LICENSE.md;endline=24;md5=a0832c9e25a6100b4753d7f0c3b
 
 S = "${WORKDIR}/git"
 
-SRCREV = "12258215af1cee598c203b85e9c342bd9900b088"
+SRCREV = "6abd3d70beb9233262fbbb2de1f780cdfc29bb5c"
 PV = "1.0.0+git${SRCPV}"
 
 SRC_URI = "\
@@ -81,7 +81,7 @@ do_configure() {
 }
 
 do_compile() {
-    oe_runmake V=1 -C${S}/build qt-app qt-qml-app
+    oe_runmake BUILDTYPE=Release V=1 -C${S}/build qt-app qt-qml-app
 }
 
 do_install() {

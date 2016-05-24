@@ -13,8 +13,8 @@ SRC_URI = "\
     https://github.com/mapbox/geometry.hpp/archive/v${PV}.tar.gz \
     file://01-gcc4_compat.patch"
 
-SRC_URI[md5sum] = "88cb99e9ddebbdc3c5d1f20fe44a6887"
-SRC_URI[sha256sum] = "e095fd3af43caba8fd453c152c6b751f2a05f2ddccc41cbc01e3ab0cf959ce48"
+SRC_URI[md5sum] = "724dada9cdc96fef1346024da3c1d70a"
+SRC_URI[sha256sum] = "30c566ab79d1703433d2af7a6b5cbdb7f5cffe36679a0e0f847ad99d4f9ae798"
 
 DEPENDS = "variant"
 

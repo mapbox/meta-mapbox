@@ -10,7 +10,6 @@
   'variables': {
     'qt_version_major%': ['5'],
     'boost_cflags%': [],
-    'coverage%': [],
     'geojsonvt_cflags%': [],
     'geojsonvt_ldflags%': [],
     'geometry_cflags%': [],
